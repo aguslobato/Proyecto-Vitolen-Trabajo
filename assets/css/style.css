@@ -1,0 +1,263 @@
+/* NAVBAR DESKTOP */
+
+body {
+    margin: 0;
+    background: #f4f4f4;
+    color: #202020;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+    width: 100%;
+    padding-top: 18px;
+}
+
+.menu {
+    width: calc(100% - 32px);
+    max-width: 1360px;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .04);
+}
+
+.menu-top {
+    min-height: 82px;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    flex: 0 0 auto;
+    line-height: 0;
+}
+
+.logo img {
+    display: block;
+    width: 126px;
+    height: auto;
+}
+
+.menu-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 34px;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    gap: 42px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link,
+.nav-link:visited {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    color: #3C3C3C;
+    text-decoration: none;
+    font-size: 12px;
+
+    padding-bottom: 0px;
+    border-bottom: 3px solid transparent;
+
+    transition: border-color 0.6s ease;
+}
+
+.nav-link:hover {
+    border-bottom-color: #ff1f12;
+    transition: border-color 0.6s ease;
+}
+.productos::after,
+.servicios::after {
+    content: "";
+    position: absolute;
+
+    top: 100%;
+    left: -20px;
+
+    width: calc(100% + 40px);
+    height: 35px;
+}
+.productos:hover > .nav-link,
+.servicios:hover > .nav-link {
+    border-bottom-color: #ff1f12;
+}
+
+.nav-link span {
+    font-size: 15px;
+    transform: translateY(-1px);
+}
+
+.online-btn,
+.online-btn:visited {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0 20px;
+    border-radius: 8px;
+    background: #ff2015;
+    color: #fff;
+    border: 2px solid transparent;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.6s ease;
+}
+
+.online-btn:hover {
+    transition: all 0.6s ease;
+    color: #ff2015;
+    background: #fff;
+    border: 2px solid #ff2015;
+}
+
+/* Paneles desplegables: forman parte del mismo bloque blanco de 1360px */
+.menu-panel {
+    display: none;
+    width: 100%;
+    min-height: 178px;
+    border-top: 1px solid transparent;
+}
+
+.menu:has(.productos:hover, .productos-menu:hover) .productos-menu {
+    display: block;
+}
+
+.menu:has(.servicios:hover, .servicios-menu:hover) .servicios-menu {
+    display: block;
+}
+
+.panel-inner {
+    /* alinea la primera columna aproximadamente debajo de Productos */
+    margin-left: 50%;
+    display: flex;
+    align-items: flex-start;
+    min-height: 178px;
+    padding: 18px 30px 30px 0;
+}
+
+.menu-column {
+    width: 205px;
+    flex: 0 0 205px;
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+.panel-item > a,
+.menu-column > a,
+.services-inner > a {
+    color: #3C3C3C;
+    font-size: 12px;
+    line-height: 1.25;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.panel-item > a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 175px;
+}
+
+.panel-item > a span {
+    margin-left: 18px;
+    font-size: 12px;
+}
+
+.column-2,
+.column-3 {
+    display: none;
+}
+
+/* Mantiene la segunda columna visible mientras el cursor avanza por ella */
+.productos-menu:has(.laboratorio-item:hover, .laboratorio-menu:hover, .monofocales-menu:hover, .progresivos-menu:hover) .laboratorio-menu {
+    display: flex;
+}
+
+/* Tercer nivel */
+.productos-menu:has(.monofocales-item:hover, .monofocales-menu:hover) .monofocales-menu {
+    display: flex;
+}
+
+.productos-menu:has(.progresivos-item:hover, .progresivos-menu:hover) .progresivos-menu {
+    display: flex;
+}
+
+.column-3 {
+    gap: 9px;
+    padding-left: 2px;
+}
+
+/* Servicios */
+.services-inner {
+    margin-left: 63%;
+    min-height: 178px;
+    padding: 18px 30px 30px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 17px;
+}
+
+/* Hover sutil, sin alterar la maqueta */
+.panel-item > a:hover,
+.menu-column > a:hover,
+.services-inner > a:hover {
+    color: #000;
+}
+
+/* =========================
+   ROTACIÓN DE FLECHAS
+========================= */
+
+/* Transición general */
+.nav-link span,
+.panel-item > a span {
+    display: inline-block;
+    transition: transform 0.25s ease;
+}
+
+
+/* Productos */
+.menu:has(.productos:hover, .productos-menu:hover)
+.productos > .nav-link span {
+    transform: rotate(90deg);
+}
+
+
+/* Servicios */
+.menu:has(.servicios:hover, .servicios-menu:hover)
+.servicios > .nav-link span {
+    transform: rotate(90deg);
+}
+
+.laboratorio-item:hover > a span,
+.monofocales-item:hover > a span,
+.progresivos-item:hover > a span {
+    transform: rotate(90deg);
+}
+
+/* Solo desktop: el componente fue pedido para escritorio */
+@media (max-width: 1024px) {
+    .nav-list { gap: 24px; }
+    .menu-right { gap: 22px; }
+    .menu-top { padding-left: 22px; padding-right: 22px; }
+    .logo img { width: 110px; }
+    .nav-link { font-size: 12px; }
+    .online-btn { padding: 0 15px; font-size: 12px; }
+}
